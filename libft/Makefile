@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:48:43 by yrhiba            #+#    #+#              #
-#    Updated: 2022/10/12 01:36:50 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/10/21 23:49:08 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ FILES = ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint \
 		ft_memchr ft_memcmp ft_strnstr ft_calloc ft_strdup \
 		ft_tolower ft_atoi  ft_toupper ft_substr ft_strjoin \
 		ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_strtrim \
-		ft_split ft_itoa ft_strmapi ft_striteri ft_putnbr_fd
+		ft_split ft_itoa ft_strmapi ft_striteri ft_putnbr_fd \
+		ft_nbrlen
 	
 BONUS_FILES =	ft_lstnew ft_lstadd_front ft_lstsize \
 				ft_lstlast ft_lstadd_back ft_lstdelone \
