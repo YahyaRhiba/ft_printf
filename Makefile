@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/21 21:15:12 by yrhiba            #+#    #+#              #
-#    Updated: 2022/10/21 23:51:36 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/10/22 00:08:18 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,11 @@ $(NAME) : $(OBJS) libft_all
 	ar rcs $(NAME) $(OBJS)
 
 libft_all :
-	make -C libft
+	make bonus -C libft
 
 all : $(NAME)
 
-$(OBJS_DIR)%.o : %.c
+$(OBJS_DIR)%.o : %.c libftprintf.h
 	@mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 

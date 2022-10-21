@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:48:43 by yrhiba            #+#    #+#              #
-#    Updated: 2022/10/21 23:49:08 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/10/22 00:03:19 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p objs
@@ -53,6 +53,6 @@ fclean : clean
 re : fclean all
 
 bonus : $(OBJS_BONUS)
-	ar rc $(NAME) $(OBJS_BONUS)
+	ar rcs $(NAME) $(OBJS_BONUS)
 
 .PHONEY : all clean fclean re bonus
