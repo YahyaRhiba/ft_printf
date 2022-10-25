@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/21 21:15:12 by yrhiba            #+#    #+#              #
-#    Updated: 2022/10/22 00:08:18 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/10/25 21:15:45 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,10 +40,12 @@ $(OBJS_DIR)%.o : %.c libftprintf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	rm -rf $(LIBFT_OBJS_DIR) $(OBJS_DIR)
+	make clean -C libft
+	rm -rf $(OBJS_DIR)
 
 fclean : clean
-	rm -f $(LIBFT_NAME) $(NAME)
+	make fclean -C libft
+	rm -f $(NAME)
 
 re : fclean all
 
