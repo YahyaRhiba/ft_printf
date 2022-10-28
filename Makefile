@@ -6,19 +6,19 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 01:30:17 by yrhiba            #+#    #+#              #
-#    Updated: 2022/10/27 22:23:06 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/10/28 02:03:17 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 FILES = ft_printf ft_atoi ft_check_flags ft_init_tab \
-		ft_check_format
+		ft_check_format ft_print ft_fone_utils
 
 OBJS_DIR = objs/
 INC = ft_printf.h
-SRCS = $(FILES:.c)
-OBJS = $(addprefix $(OBJS_DIR), $(FILES:.o))
+SRCS = $(FILES:=.c)
+OBJS = $(addprefix $(OBJS_DIR), $(FILES:=.o))
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 

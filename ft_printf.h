@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/27 22:22:33 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/28 02:06:45 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ int			ft_check_flags(const char *format, int index, t_print *to_print);
 int			ft_atoi(const char *str);
 int			ft_check_format(const char *format, int old_i, int new_i,
 				t_print *tab);
+void		ft_print(char c, int i, t_print *tab);
+
+void		ft_format_c(t_print *tab);
 
 #endif
