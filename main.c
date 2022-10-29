@@ -14,7 +14,7 @@
 
 int main()
 {
-    int n = ft_printf("|%0-5c|\n|%-3c|\n|%0c|\n|%c|\n", 'a', 'b', 'c', 'd');
+    int n = ft_printf("|%-10s|\n", "hello");
 
     printf("%d\n", n);
 }

@@ -58,6 +58,29 @@ char *ft_mins_s(char *r, t_print *tab)
 	return (free(r), rtn);
 }
 
+char *ft_zeros_s(char *r, t_print *tab)
+{
+	char *rtn;
+	int len;
+	int i;
+	int j;
+
+	len = ft_strlen((const char *)r);
+	if (tab->z_num < len)
+		return (r);
+	rtn = (char *)malloc(sizeof(char) * (tab->z_num + 1));
+	if (!rtn)
+		return (free(r), NULL);
+	i = 0;
+	while (i < (tab->z_num - len))
+		rtn[i++] = '0';
+	j = 0;
+	while(j < len)
+		rtn[i++] = r[j++];
+	rtn[i] = '\0';
+	return (free(r), rtn);
+}
+
 void	ft_format_s(t_print *tab)
 {
 	char	*r;
@@ -77,14 +100,16 @@ void	ft_format_s(t_print *tab)
 		if (!r)
 			return ;
 	}
-	else if (tab->zero == 1 && tab->mines == 0)
+	if (tab->zero == 1 && tab->mines == 0)
 	{
 		r = ft_zeros_s(r, tab);
+		if (!r)
+			return ;
 	}
+	tab->len += write(1, r, ft_strlen(r));
 }
 
 /*
-
     flags for s
 
         -  : work second
@@ -93,5 +118,4 @@ void	ft_format_s(t_print *tab)
         #  : 
        ' ' : 
         +  : 
-
 */

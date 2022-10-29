@@ -17,7 +17,7 @@ static	size_t	ft_lcpystr(char *dst, const char *src, size_t dstsize)
 	size_t	lens;
 	size_t	i;
 
-	lens = ft_lenstr(src);
+	lens = ft_strlen(src);
 	if (!dst || !src)
 		return (0);
 	else if (!dstsize)
