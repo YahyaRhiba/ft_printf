@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/29 16:30:20 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 00:35:09 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ static char	*ft_precision_s(char *s, t_print *tab)
 	return (free(s), rtn);
 }
 
-char *ft_mins_s(char *r, t_print *tab)
+char	*ft_mins_s(char *r, t_print *tab)
 {
-	char *rtn;
-	int len;
-	int	i;
+	char	*rtn;
+	int		len;
+	int		i;
 
 	len = ft_strlen((const char *)r);
 	if (len > tab->m_num)
@@ -58,12 +58,12 @@ char *ft_mins_s(char *r, t_print *tab)
 	return (free(r), rtn);
 }
 
-char *ft_zeros_s(char *r, t_print *tab)
+char	*ft_zeros_s(char *r, t_print *tab)
 {
-	char *rtn;
-	int len;
-	int i;
-	int j;
+	char	*rtn;
+	int		len;
+	int		i;
+	int		j;
 
 	len = ft_strlen((const char *)r);
 	if (tab->z_num < len)
@@ -75,7 +75,7 @@ char *ft_zeros_s(char *r, t_print *tab)
 	while (i < (tab->z_num - len))
 		rtn[i++] = '0';
 	j = 0;
-	while(j < len)
+	while (j < len)
 		rtn[i++] = r[j++];
 	rtn[i] = '\0';
 	return (free(r), rtn);
