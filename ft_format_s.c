@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fone_utils.c                                    :+:      :+:    :+:   */
+/*   ft_format_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 01:04:46 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/28 02:12:50 by yrhiba           ###   ########.fr       */
+/*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
+/*   Updated: 2022/10/29 14:51:34 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+void	ft_format_s(t_print *tab)
+{
+	char	*s;
+	char	*r;
+
+	s = va_arg(tab->args, char *);
+	r = ft_strdup((const char *)s);
+	if (!r)
+		return ;
+	if (tab->point == 1)
+	{
+		r = ft_per_s(s, tab);
+	}
+}
+
 /*
 
-    flags
+    flags for s
 
-        -  : work
-        0  : work ignored if - exist
-        .  : don't
-        #  : don't
-       ' ' : dont't
-        +  : dont't
+        -  : work 
+        0  : work ignored if - existe
+        .  : 
+        #  : 
+       ' ' : 
+        +  : 
 
 */
-
-void    ft_format_c(t_print *tab)
-{
-    char c;
-
-    c = va_arg(tab->args, int);
-    if (tab->mines == 1)
-    {
-        tab->len += write(1, &c, 1);
-        ft_print(' ', tab->m_num - 1, tab);
-    }
-}
