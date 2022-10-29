@@ -18,7 +18,7 @@ static char	*ft_precision_s(char *s, t_print *tab)
 	int		i;
 	char	*rtn;
 
-	len = ft_strlen(s);
+	len = ft_strlen((const char *)s);
 	if (len < tab->p_num)
 		return (s);
 	rtn = (char *)malloc(sizeof(char) * (tab->p_num + 1));
@@ -34,6 +34,30 @@ static char	*ft_precision_s(char *s, t_print *tab)
 	return (free(s), rtn);
 }
 
+char *ft_mins_s(char *r, t_print *tab)
+{
+	char *rtn;
+	int len;
+	int	i;
+
+	len = ft_strlen((const char *)r);
+	if (len > tab->m_num)
+		return (r);
+	rtn = (char *)malloc(sizeof(char) * (tab->m_num + 1));
+	if (!rtn)
+		return (free(r), NULL);
+	i = 0;
+	while (i < len)
+	{
+		rtn[i] = r[i];
+		i++;
+	}
+	while (i < tab->m_num)
+		rtn[i++] = 32;
+	rtn[i] = '\0';
+	return (free(r), rtn);
+}
+
 void	ft_format_s(t_print *tab)
 {
 	char	*r;
@@ -46,6 +70,16 @@ void	ft_format_s(t_print *tab)
 		r = ft_precision_s(r, tab);
 		if (!r)
 			return ;
+	}
+	if (tab->mines == 1)
+	{
+		r = ft_mins_s(r, tab);
+		if (!r)
+			return ;
+	}
+	else if (tab->zero == 1 && tab->mines == 0)
+	{
+		r = ft_zeros_s(r, tab);
 	}
 }
 
