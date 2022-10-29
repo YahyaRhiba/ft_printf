@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/28 02:06:45 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/29 14:03:02 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -41,5 +42,8 @@ int			ft_check_format(const char *format, int old_i, int new_i,
 void		ft_print(char c, int i, t_print *tab);
 
 void		ft_format_c(t_print *tab);
+char		*ft_strdup(const char *s1);
+char		*ft_strjoin(char const *s1, char const *s2);
+size_t		ft_strlen(const char *s);
 
 #endif
