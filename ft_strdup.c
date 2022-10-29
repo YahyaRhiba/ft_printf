@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 13:27:20 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/29 14:03:20 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/29 14:07:57 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strdup(const char *s1)
 	size = ft_strlen(s1) + 1;
 	rtn = (char *)malloc(sizeof(char) * size);
 	if (!rtn)
-		return (0);
+		return (NULL);
 	ft_lcpystr(rtn, s1, size);
 	return (rtn);
 }
