@@ -14,7 +14,12 @@
 
 int main()
 {
-    int n = ft_printf("|%-10s|\n", "hello");
+    // int n1 = ft_printf("|%0-10,.2s|\n", "hello");
+    // printf("|%d|\n", n1);
 
-    printf("%d\n", n);
+    // printf("##############\n");
+
+    int n2 = printf("|%.2%|\n");
+    printf("|%d|\n", n2);
+
 }

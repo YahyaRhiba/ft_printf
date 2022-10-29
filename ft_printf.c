@@ -35,7 +35,7 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			ft_init_tab(tab);
-			i = ft_check_format(format, i + 1, ft_check_flags(format, i + 1,
+			i = ft_check_format(format, i, ft_check_flags(format, i + 1,
 						tab), tab);
 			rtn += tab->len;
 		}

@@ -12,11 +12,8 @@
 
 #include "ft_printf.h"
 
-void    ft_format_c(t_print *tab)
+void    ft_format_c(t_print *tab, int c)
 {
-    char c;
-
-    c = va_arg(tab->args, int);
     if (tab->mines == 1)
     {
         tab->len += write(1, &c, 1);

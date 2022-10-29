@@ -15,7 +15,7 @@
 int	ft_check_format(const char *format, int old_i, int new_i, t_print *tab)
 {
 	if (format[new_i] == 'c')
-		ft_format_c(tab);
+		ft_format_c(tab, va_arg(tab->args, int));
 	else if (format[new_i] == 's')
 		ft_format_s(tab);
 	// else if (format[new_i] == 'p')
@@ -30,8 +30,8 @@ int	ft_check_format(const char *format, int old_i, int new_i, t_print *tab)
 	// 	ft_format_lx(tab);
 	// else if (format[new_i] == 'X')
 	// 	ft_format_ux(tab);
-	// else if (format[new_i] == '%')
-	// 	ft_format_per(tab);
+	else if (format[new_i] == '%')
+		ft_format_c(tab, '%');
 	else
 		return (old_i);
 	return (new_i);

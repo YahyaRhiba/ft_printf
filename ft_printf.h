@@ -45,7 +45,7 @@ char		*ft_strdup(const char *s1);
 char		*ft_strjoin(char const *s1, char const *s2);
 size_t		ft_strlen(const char *s);
 
-void		ft_format_c(t_print *tab);
+void		ft_format_c(t_print *tab, int c);
 void		ft_format_s(t_print *tab);
 
 #endif
