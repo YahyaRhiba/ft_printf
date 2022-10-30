@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 02:01:47 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 00:34:07 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 15:05:01 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_skip_num(const char *format, int i)
 	return (i);
 }
 
-static int	ft_fcheck_zero(const char *format, int *i, t_print *tab)
+int	ft_fcheck_zero(const char *format, int *i, t_print *tab)
 {
 	if (format[*i] == '0')
 	{
@@ -31,7 +31,7 @@ static int	ft_fcheck_zero(const char *format, int *i, t_print *tab)
 	return (*i);
 }
 
-static int	ft_fcheck_mins(const char *format, int *i, t_print *tab)
+int	ft_fcheck_mins(const char *format, int *i, t_print *tab)
 {
 	if (format[*i] == '-')
 	{
@@ -43,7 +43,7 @@ static int	ft_fcheck_mins(const char *format, int *i, t_print *tab)
 	return (*i);
 }
 
-static int	ft_fcheck_point(const char *format, int *i, t_print *tab)
+int	ft_fcheck_point(const char *format, int *i, t_print *tab)
 {
 	if (format[*i] == '.')
 	{
@@ -57,25 +57,15 @@ static int	ft_fcheck_point(const char *format, int *i, t_print *tab)
 
 int	ft_check_flags(const char *format, int i, t_print *tab)
 {
-	ft_fcheck_zero(format, &i, tab);
-	ft_fcheck_mins(format, &i, tab);
-	ft_fcheck_point(format, &i, tab);
-	if (tab->point || tab->zero || tab->mines)
-		return (i);
-	if (format[i] == '#')
+	while (format[i] == '-' || format[i] == '0' || format[i] == '.'
+		|| format[i] == '+' || format[i] == 32 || format[i] == '#')
 	{
-		tab->hash = 1;
-		return (i + 1);
-	}
-	if (format[i] == 32)
-	{
-		tab->space = 1;
-		return (i + 1);
-	}
-	if (format[i] == '+')
-	{
-		tab->plus = 1;
-		return (i + 1);
+		ft_fcheck_zero(format, &i, tab);
+		ft_fcheck_mins(format, &i, tab);
+		ft_fcheck_point(format, &i, tab);
+		ft_fcheck_hash(format, &i, tab);
+		ft_fcheck_space(format, &i, tab);
+		ft_fcheck_plus(format, &i, tab);
 	}
 	return (i);
 }
