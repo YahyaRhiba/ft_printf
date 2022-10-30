@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 01:30:17 by yrhiba            #+#    #+#              #
-#    Updated: 2022/10/30 15:06:53 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/10/30 16:43:42 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,15 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+t : all
+	cc main.c -L . -l ftprintf
+
+tclean :
+	rm -rf a.out
+
+tfclean : tclean
+	rm -rf main.c
 
 bonus : all
 
