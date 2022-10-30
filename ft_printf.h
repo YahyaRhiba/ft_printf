@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 16:25:54 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 18:25:17 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ int			ft_fcheck_hash(const char *format, int *i, t_print *tab);
 int			ft_fcheck_space(const char *format, int *i, t_print *tab);
 int			ft_fcheck_plus(const char *format, int *i, t_print *tab);
 
-int			ft_check_format(const char *format, int old_i, int new_i,
-				t_print *tab);
+int			ft_check_format(const char *format, int i, t_print *tab);
 
 void		ft_format_c(t_print *tab, int c);
 int			ft_format_s(t_print *tab);
