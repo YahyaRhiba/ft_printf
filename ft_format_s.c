@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 00:35:09 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 16:13:10 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void	ft_format_s(t_print *tab)
 			return ;
 	}
 	tab->len += write(1, r, ft_strlen(r));
+	free(r);
 }
 
 /*

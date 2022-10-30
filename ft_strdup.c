@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 13:27:20 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/29 14:07:57 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 16:15:58 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	*ft_strdup(const char *s1)
 	char	*rtn;
 	size_t	size;
 
+	if (!s1)
+		return (NULL);
 	size = ft_strlen(s1) + 1;
 	rtn = (char *)malloc(sizeof(char) * size);
 	if (!rtn)

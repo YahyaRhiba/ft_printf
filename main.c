@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:18:37 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 00:33:43 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 16:14:43 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int	main(void)
 {
+
+
 	int	n2;
 
-	n2 = printf("|%.2%|\n");
-	printf("|%d|\n", n2);
+	n2 = printf("|%s|\n", NULL);
+
+	// printf("|%00k|\n", n2);
+	system("leaks a.out");
 }
