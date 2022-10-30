@@ -6,13 +6,13 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 02:01:47 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 15:05:01 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 18:46:05 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_skip_num(const char *format, int i)
+int	ft_skip_num(const char *format, int i)
 {
 	while (format[i] <= '9' && format[i] >= '0')
 		i++;
@@ -58,8 +58,10 @@ int	ft_fcheck_point(const char *format, int *i, t_print *tab)
 int	ft_check_flags(const char *format, int i, t_print *tab)
 {
 	while (format[i] == '-' || format[i] == '0' || format[i] == '.'
-		|| format[i] == '+' || format[i] == 32 || format[i] == '#')
+		|| format[i] == '+' || format[i] == 32 || format[i] == '#'
+		|| ft_isnum(format[i]))
 	{
+		ft_fcheck_nbr(format, &i, tab);
 		ft_fcheck_zero(format, &i, tab);
 		ft_fcheck_mins(format, &i, tab);
 		ft_fcheck_point(format, &i, tab);

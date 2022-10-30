@@ -6,11 +6,17 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:46:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 18:25:45 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 19:09:50 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_print_null(t_print *tab)
+{
+	tab->len += write(1, P_NULL, ft_strlen(P_NULL));
+	return (0);
+}
 
 void	ft_print(char c, int i, t_print *tab)
 {

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 17:59:52 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 19:11:12 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_mins_s(char *r, t_print *tab)
 	return (free(r), rtn);
 }
 
-char	*ft_zeros_s(char *r, t_print *tab)
+char	*ft_zerospaces_s(char *r, t_print *tab, int c)
 {
 	char	*rtn;
 	int		len;
@@ -73,18 +73,12 @@ char	*ft_zeros_s(char *r, t_print *tab)
 		return (free(r), NULL);
 	i = 0;
 	while (i < (tab->z_num - len))
-		rtn[i++] = '0';
+		rtn[i++] = c;
 	j = 0;
 	while (j < len)
 		rtn[i++] = r[j++];
 	rtn[i] = '\0';
 	return (free(r), rtn);
-}
-
-int	ft_w_null(t_print *tab)
-{
-	tab->len += write(1, P_NULL, ft_strlen(P_NULL));
-	return (0);
 }
 
 int	ft_format_s(t_print *tab)
@@ -93,24 +87,30 @@ int	ft_format_s(t_print *tab)
 
 	r = ft_strdup((const char *)va_arg(tab->args, char *));
 	if (!r)
-		return (ft_w_null(tab));
+		return (ft_print_null(tab));
 	if (tab->point == 1)
 	{
 		r = ft_precision_s(r, tab);
 		if (!r)
-			return (ft_w_null(tab));
+			return (ft_print_null(tab));
 	}
 	if (tab->mines == 1)
 	{
 		r = ft_mins_s(r, tab);
 		if (!r)
-			return (ft_w_null(tab));
+			return (ft_print_null(tab));
 	}
-	if (tab->zero == 1 && tab->mines == 0)
+	else if (tab->zero == 1)
 	{
-		r = ft_zeros_s(r, tab);
+		r = ft_zerospaces_s(r, tab, '0');
 		if (!r)
-			return (ft_w_null(tab));
+			return (ft_print_null(tab));
+	}
+	else if (tab->nbr == 1)
+	{
+		r = ft_zerospaces_s(r, tab, 32);
+		if (!r)
+			return (ft_print_null(tab));
 	}
 	tab->len += write(1, r, ft_strlen(r));
 	return (free(r), 0);
