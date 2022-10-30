@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 16:13:10 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 16:27:53 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,33 +81,33 @@ char	*ft_zeros_s(char *r, t_print *tab)
 	return (free(r), rtn);
 }
 
-void	ft_format_s(t_print *tab)
+int	ft_format_s(t_print *tab)
 {
 	char	*r;
 
 	r = ft_strdup((const char *)va_arg(tab->args, char *));
 	if (!r)
-		return ;
+		return (tab->len += write(1, P_NULL, ft_strlen(P_NULL)), 0);
 	if (tab->point == 1)
 	{
 		r = ft_precision_s(r, tab);
 		if (!r)
-			return ;
+			return (tab->len += write(1, P_NULL, ft_strlen(P_NULL)), 0);
 	}
 	if (tab->mines == 1)
 	{
 		r = ft_mins_s(r, tab);
 		if (!r)
-			return ;
+			return (tab->len += write(1, P_NULL, ft_strlen(P_NULL)), 0);
 	}
 	if (tab->zero == 1 && tab->mines == 0)
 	{
 		r = ft_zeros_s(r, tab);
 		if (!r)
-			return ;
+			return (tab->len += write(1, P_NULL, ft_strlen(P_NULL)), 0);
 	}
 	tab->len += write(1, r, ft_strlen(r));
-	free(r);
+	return (free(r), 0);
 }
 
 /*

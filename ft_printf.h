@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 15:00:32 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/30 16:25:54 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define P_NULL "(null)"
 
 typedef struct s_print
 {
@@ -56,6 +58,6 @@ int			ft_check_format(const char *format, int old_i, int new_i,
 				t_print *tab);
 
 void		ft_format_c(t_print *tab, int c);
-void		ft_format_s(t_print *tab);
+int			ft_format_s(t_print *tab);
 
 #endif
