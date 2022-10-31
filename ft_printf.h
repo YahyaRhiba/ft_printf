@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/31 02:59:33 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/31 03:31:37 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int			ft_check_format(const char *format, int i, t_print *tab);
 
 void		ft_format_c(t_print *tab, int c);
 int			ft_format_s(t_print *tab);
+char		*ft_format_s_usingflags(char *s, t_print *tab);
 
 #endif

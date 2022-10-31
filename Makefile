@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 01:30:17 by yrhiba            #+#    #+#              #
-#    Updated: 2022/10/30 18:59:29 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/10/31 03:37:52 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libftprintf.a
 FILES = ft_printf  ft_init_tab \
 		ft_strdup ft_strjoin ft_strlen ft_atoi ft_isnum \
 		ft_check_format ft_check_flags ft_check_flags_utils \
-		ft_format_c ft_format_s \
+		ft_format_c ft_format_s ft_format_s_utils \
 
 OBJS_DIR = objs/
 INC = ft_printf.h
