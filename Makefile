@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 01:30:17 by yrhiba            #+#    #+#              #
-#    Updated: 2022/10/31 03:37:52 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/10/31 21:24:03 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ re : fclean all
 t : all
 	cc main.c -L . -l ftprintf
 
-tclean :
+tclean : fclean
 	rm -rf a.out
 
 tfclean : tclean
