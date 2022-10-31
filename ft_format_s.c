@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/31 02:19:32 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/31 02:44:19 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,31 +87,31 @@ int	ft_format_s(t_print *tab)
 
 	r = ft_strdup((const char *)va_arg(tab->args, char *));
 	if (!r)
-		return (ft_print_null(tab));
+		return (ft_print_str(P_NULL, tab));
 	if (tab->point == 1)
 	{
 		r = ft_precision_s(r, tab);
 		if (!r)
-			return (ft_print_null(tab));
+			return (ft_print_str(P_NULL, tab));
 	}
 	if (tab->mines == 1)
 	{
 		r = ft_mins_s(r, tab);
 		if (!r)
-			return (ft_print_null(tab));
+			return (ft_print_str(P_NULL, tab));
 	}
 	if (tab->zero == 1 && tab->mines == 0)
 	{
 		r = ft_zerospaces_s(r, '0', tab->z_num);
 		if (!r)
-			return (ft_print_null(tab));
+			return (ft_print_str(P_NULL, tab));
 	}
 	if (tab->nbr == 1 && tab->mines == 0 && tab->zero == 0)
 	{
 		r = ft_zerospaces_s(r, 32, tab->n_nbr);
 		if (!r)
-			return (ft_print_null(tab));
+			return (ft_print_str(P_NULL, tab));
 	}
-	tab->len += write(1, r, ft_strlen(r));
+	ft_print_str((const char *)r, tab);
 	return (free(r), 0);
 }

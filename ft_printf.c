@@ -6,22 +6,32 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:46:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 19:09:50 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/31 03:06:09 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_null(t_print *tab)
+int	ft_print_str(const char *str, t_print *tab)
 {
-	tab->len += write(1, P_NULL, ft_strlen(P_NULL));
+	tab->len += write(1, str, ft_strlen(str));
 	return (0);
 }
 
-void	ft_print(char c, int i, t_print *tab)
+void	ft_print_char(char c, int len, t_print *tab)
 {
-	while (i-- > 0)
-		tab->len += write(1, &c, 1);
+	int		i;
+	char	*s;
+
+	s = (char *)malloc(sizeof(char) * (len + 1));
+	if (!s)
+		return ;
+	i = 0;
+	while (i < len)
+		s[i++] = c;
+	s[i] = '\0';
+	ft_print_str((const char *)s, tab);
+	free(s);
 }
 
 int	ft_printf(const char *format, ...)
