@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:18:37 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 19:11:34 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/31 02:16:37 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	main(void)
 {
-	int	n2;
+	int	n1, n2;
 
-	n2 = ft_printf("|%10s|\n", "NULL");
+	n1 = ft_printf("|%020s____%10c__|\n", "hello", 'a');
+	n2 = printf("|%020s____%10c__|\n", "hello", 'a');
+
+	printf("|%d|\n", n1);
 	printf("|%d|\n", n2);
 }

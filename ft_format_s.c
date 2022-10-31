@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 19:11:12 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/10/31 02:19:32 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,21 @@ char	*ft_mins_s(char *r, t_print *tab)
 	return (free(r), rtn);
 }
 
-char	*ft_zerospaces_s(char *r, t_print *tab, int c)
+char	*ft_zerospaces_s(char *r, int c, int t_len)
 {
 	char	*rtn;
 	int		len;
 	int		i;
 	int		j;
 
-	len = ft_strlen((const char *)r);
-	if (tab->z_num < len)
+	len = (int) ft_strlen((const char *)r);
+	if (t_len < len)
 		return (r);
-	rtn = (char *)malloc(sizeof(char) * (tab->z_num + 1));
+	rtn = (char *)malloc(sizeof(char) * (t_len + 1));
 	if (!rtn)
 		return (free(r), NULL);
 	i = 0;
-	while (i < (tab->z_num - len))
+	while (i < (t_len - len))
 		rtn[i++] = c;
 	j = 0;
 	while (j < len)
@@ -100,15 +100,15 @@ int	ft_format_s(t_print *tab)
 		if (!r)
 			return (ft_print_null(tab));
 	}
-	else if (tab->zero == 1)
+	if (tab->zero == 1 && tab->mines == 0)
 	{
-		r = ft_zerospaces_s(r, tab, '0');
+		r = ft_zerospaces_s(r, '0', tab->z_num);
 		if (!r)
 			return (ft_print_null(tab));
 	}
-	else if (tab->nbr == 1)
+	if (tab->nbr == 1 && tab->mines == 0 && tab->zero == 0)
 	{
-		r = ft_zerospaces_s(r, tab, 32);
+		r = ft_zerospaces_s(r, 32, tab->n_nbr);
 		if (!r)
 			return (ft_print_null(tab));
 	}
