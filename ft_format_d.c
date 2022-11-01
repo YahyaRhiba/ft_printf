@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 17:58:55 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 18:31:18 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,29 @@ char	*ft_format_d_pluspace(char *nbr, int c)
 	return (rtn[i] = '\0', free(nbr), rtn);
 }
 
-char	*ft_format_d_precision(char *nbr, t_print *tab)
+char	*ft_format_d_precision(char *nbr, size_t numlen, int len, int c)
 {
 	char	*rtn;
 	char	*tmp;
-	size_t	numlen;
 	size_t	i;
 	size_t	j;
 
-	numlen = ft_strlen(nbr);
-	if (tab->p_num < (int)numlen)
+	if (len < (int)numlen)
 		return (nbr);
-	rtn = (char *)malloc(sizeof(char *) * (tab->p_num + 1));
+	rtn = (char *)malloc(sizeof(char *) * (len + 1));
 	if (!rtn)
 		return (free(nbr), NULL);
 	tmp = rtn;
 	j = 0;
-	if (nbr[j] == '-')
+	if (nbr[j] == '-' || nbr[j] == '+')
 	{
-		numlen -= 1;
+		if (nbr[j] == '-')
+			numlen -= 1;
 		*tmp++ = nbr[j++];
 	}
 	i = -1;
-	while (++i < (size_t)(tab->p_num - (int)numlen))
-		*tmp++ = '0';
+	while (++i < (size_t)(len - (int)numlen))
+		*tmp++ = c;
 	while (nbr[j])
 		*tmp++ = nbr[j++];
 	return (*tmp = '\0', free(nbr), rtn);
@@ -63,13 +62,15 @@ char	*ft_format_d_precision(char *nbr, t_print *tab)
 char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 {
 	if (tab->point == 1)
-		nbr = ft_format_d_precision(nbr, tab);
+		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->p_num, '0');
 	if (nbr && tab->plus == 1)
 		nbr = ft_format_d_pluspace(nbr, '+');
 	else if (nbr && tab->space == 1)
 		nbr = ft_format_d_pluspace(nbr, 32);
 	if (nbr && tab->mines == 1)
 		nbr = ft_mins_s(nbr, tab);
+	else if (nbr && tab->zero == 1)
+		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->w_nbr, '0');
 	return (nbr);
 }
 
