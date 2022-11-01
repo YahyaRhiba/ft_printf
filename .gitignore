@@ -3,3 +3,4 @@ main.c
 tuto
 objs
 a.out
+*.a
