@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 03:10:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/31 03:39:50 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 01:04:25 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_zerospaces_s(char *s, int c, int t_len)
 	int		i;
 	int		j;
 
-	len = (int) ft_strlen((const char *)s);
+	len = (int)ft_strlen((const char *)s);
 	if (t_len < len)
 		return (s);
 	rtn = (char *)malloc(sizeof(char) * (t_len + 1));
@@ -81,9 +81,9 @@ char	*ft_zerospaces_s(char *s, int c, int t_len)
 	return (free(s), rtn);
 }
 
-char *ft_format_s_usingflags(char *s, t_print *tab)
+char	*ft_format_s_usingflags(char *s, t_print *tab)
 {
-    if (tab->point == 1)
+	if (tab->point == 1)
 	{
 		s = ft_precision_s(s, tab);
 		if (!s)
@@ -107,5 +107,5 @@ char *ft_format_s_usingflags(char *s, t_print *tab)
 		if (!s)
 			return (NULL);
 	}
-    return (s);
+	return (s);
 }

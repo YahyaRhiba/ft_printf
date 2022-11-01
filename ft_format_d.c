@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/31 16:57:58 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 01:04:04 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	ft_format_d(t_print *tab)
 {
-    int d;
+	int	d;
 
-    d = va_arg(tab->args, int);
-
+	d = va_arg(tab->args, int);
 }
 
 /*
