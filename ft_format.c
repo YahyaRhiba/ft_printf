@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_tab.c                                      :+:      :+:    :+:   */
+/*   ft_format.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 01:45:37 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 00:47:17 by yrhiba           ###   ########.fr       */
+/*   Created: 2022/11/02 00:38:09 by yrhiba            #+#    #+#             */
+/*   Updated: 2022/11/02 00:41:35 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_init_tab(t_print *tab)
+int	ft_format(const char *format, int *rtn, int i, t_print *tab)
 {
-	tab->len = 0;
-	tab->width = 0;
-	tab->mines = 0;
-	tab->zero = 0;
-	tab->point = 0;
-	tab->hash = 0;
-	tab->space = 0;
-	tab->plus = 0;
-	tab->w_nbr = 0;
-	tab->p_num = 0;
-	tab->buff = ft_strdup("");
+	ft_init_tab(tab);
+	i = ft_check_format(format, ft_check_flags(format, i + 1, tab),
+			tab);
+	*rtn += tab->len;
+	return (i);
 }

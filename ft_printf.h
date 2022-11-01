@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 17:59:17 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 00:50:44 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -33,6 +32,7 @@ typedef struct s_print
 	int		plus;
 	int		w_nbr;
 	int		p_num;
+	char	*buff;
 }			t_print;
 
 int			ft_atoi(const char *str);
