@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 17:02:20 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 17:22:08 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_format_d_precision(char *nbr, t_print *tab)
 	size_t	j;
 
 	numlen = ft_strlen(nbr);
-	if (tab->p_num <= (int)numlen)
+	if (tab->p_num < (int)numlen)
 		return (nbr);
 	rtn = (char *)malloc(sizeof(char *) * (tab->p_num + 1));
 	if (!rtn)
