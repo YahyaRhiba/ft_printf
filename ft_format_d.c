@@ -6,13 +6,13 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 02:22:20 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 03:17:34 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_format_plus(char *nbr)
+char	*ft_format_pluspace(char *nbr, int c)
 {
 	char	*rtn;
 	size_t	size;
@@ -25,7 +25,7 @@ char	*ft_format_plus(char *nbr)
 	if (!rtn)
 		return (free(nbr), NULL);
 	i = 0;
-	rtn[i] = '+';
+	rtn[i] = c;
 	while (++i < size - 1)
 		rtn[i] = nbr[i - 1];
 	return (rtn[i] = '\0', free(nbr), rtn);
@@ -34,7 +34,9 @@ char	*ft_format_plus(char *nbr)
 char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 {
 	if (tab->plus == 1)
-		nbr = ft_format_plus(nbr);
+		nbr = ft_format_pluspace(nbr, '+');
+	else if (tab->space == 1)
+		nbr = ft_format_pluspace(nbr, 32);
 	return (nbr);
 }
 
