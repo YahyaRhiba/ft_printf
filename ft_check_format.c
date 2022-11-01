@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:20:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 18:26:51 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 01:07:49 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_check_format(const char *format, int i, t_print *tab)
 		ft_format_c(tab, va_arg(tab->args, int));
 	else if (format[i] == 's')
 		ft_format_s(tab);
+	else if (format[i] == 'd' || format[i] == 'i')
+		ft_format_d(tab);
 	else if (format[i] == '%')
 		ft_format_c(tab, '%');
 	else
@@ -28,8 +30,6 @@ int	ft_check_format(const char *format, int i, t_print *tab)
 /*
 	// else if (format[new_i] == 'p')
 	// 	ft_format_p(tab);
-	// else if (format[new_i] == 'd')
-	// 	ft_format_d(tab);
 	// else if (format[new_i] == 'i')
 	// 	ft_format_i(tab);
 	// else if (format[new_i] == 'u')
