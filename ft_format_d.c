@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 18:31:18 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 18:44:13 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_format_d_precision(char *nbr, size_t numlen, int len, int c)
 		return (free(nbr), NULL);
 	tmp = rtn;
 	j = 0;
-	if (nbr[j] == '-' || nbr[j] == '+')
+	if ((nbr[j] == '-' || nbr[j] == '+') && c == '0')
 	{
 		if (nbr[j] == '-')
 			numlen -= 1;
@@ -69,8 +69,10 @@ char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 		nbr = ft_format_d_pluspace(nbr, 32);
 	if (nbr && tab->mines == 1)
 		nbr = ft_mins_s(nbr, tab);
-	else if (nbr && tab->zero == 1)
+	else if (nbr && tab->zero == 1 && tab->point == 0)
 		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->w_nbr, '0');
+	else if (nbr && tab->width == 1)
+		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->w_nbr, 32);
 	return (nbr);
 }
 
