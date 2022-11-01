@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 03:10:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 03:42:50 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 17:57:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,12 @@ char	*ft_zerospaces_s(char *s, int c, int t_len)
 char	*ft_format_s_usingflags(char *s, t_print *tab)
 {
 	if (tab->point == 1)
-	{
 		s = ft_precision_s(s, tab);
-		if (!s)
-			return (NULL);
-	}
-	if (tab->mines == 1)
-	{
+	if (s && tab->mines == 1)
 		s = ft_mins_s(s, tab);
-		if (!s)
-			return (NULL);
-	}
-	else if (tab->zero == 1)
-	{
+	else if (s && tab->zero == 1)
 		s = ft_zerospaces_s(s, '0', tab->w_nbr);
-		if (!s)
-			return (NULL);
-	}
-	else if (tab->width == 1)
-	{
+	else if (s && tab->width == 1)
 		s = ft_zerospaces_s(s, 32, tab->w_nbr);
-		if (!s)
-			return (NULL);
-	}
 	return (s);
 }

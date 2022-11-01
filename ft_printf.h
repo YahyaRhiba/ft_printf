@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 03:35:21 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 17:59:17 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 size_t		ft_strlen(const char *s);
 int			ft_isnum(int c);
 int			ft_skip_num(const char *format, int i);
+char		*ft_mins_s(char *s, t_print *tab);
 
 int			ft_printf(const char *format, ...);
 void		ft_print_char(char c, int len, t_print *tab);

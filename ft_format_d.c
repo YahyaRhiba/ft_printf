@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 17:22:08 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 17:58:55 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,12 @@ char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 {
 	if (tab->point == 1)
 		nbr = ft_format_d_precision(nbr, tab);
-	if (tab->plus == 1)
+	if (nbr && tab->plus == 1)
 		nbr = ft_format_d_pluspace(nbr, '+');
-	else if (tab->space == 1)
+	else if (nbr && tab->space == 1)
 		nbr = ft_format_d_pluspace(nbr, 32);
+	if (nbr && tab->mines == 1)
+		nbr = ft_mins_s(nbr, tab);
 	return (nbr);
 }
 
