@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:18:37 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 02:21:10 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 02:59:07 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	main(void)
 	int	n1;
 	int	n2;
 
-	n1 = ft_printf("%+d\n", 0);
-	n2 = printf("%+d\n", 0);
+	n1 = ft_printf("%c    %.3-s|\n", 65, "MITIRIX");
+	n2 = printf("%c    %.3-s|\n", 65, "MITIRIX");
 	printf("|%d|\n", n1);
 	printf("|%d|\n", n2);
 }
