@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:45:37 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 00:47:17 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 00:56:34 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	ft_init_tab(t_print *tab)
 	tab->plus = 0;
 	tab->w_nbr = 0;
 	tab->p_num = 0;
-	tab->buff = ft_strdup("");
 }
