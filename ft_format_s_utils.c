@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 03:10:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 01:04:25 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 03:42:50 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ char	*ft_mins_s(char *s, t_print *tab)
 	int		i;
 
 	len = ft_strlen((const char *)s);
-	if (len > tab->m_num)
+	if (len > tab->w_nbr)
 		return (s);
-	rtn = (char *)malloc(sizeof(char) * (tab->m_num + 1));
+	rtn = (char *)malloc(sizeof(char) * (tab->w_nbr + 1));
 	if (!rtn)
 		return (free(s), NULL);
 	i = 0;
@@ -52,7 +52,7 @@ char	*ft_mins_s(char *s, t_print *tab)
 		rtn[i] = s[i];
 		i++;
 	}
-	while (i < tab->m_num)
+	while (i < tab->w_nbr)
 		rtn[i++] = 32;
 	rtn[i] = '\0';
 	return (free(s), rtn);
@@ -97,13 +97,13 @@ char	*ft_format_s_usingflags(char *s, t_print *tab)
 	}
 	else if (tab->zero == 1)
 	{
-		s = ft_zerospaces_s(s, '0', tab->z_num);
+		s = ft_zerospaces_s(s, '0', tab->w_nbr);
 		if (!s)
 			return (NULL);
 	}
-	else if (tab->nbr == 1)
+	else if (tab->width == 1)
 	{
-		s = ft_zerospaces_s(s, 32, tab->n_nbr);
+		s = ft_zerospaces_s(s, 32, tab->w_nbr);
 		if (!s)
 			return (NULL);
 	}

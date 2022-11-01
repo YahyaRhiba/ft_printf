@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 14:51:42 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 18:46:36 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 03:37:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	ft_fcheck_plus(const char *format, int *i, t_print *tab)
 	return (*i);
 }
 
-int	ft_fcheck_nbr(const char *format, int *i, t_print *tab)
+int	ft_fcheck_width(const char *format, int *i, t_print *tab)
 {
 	if (ft_isnum(format[*i]))
 	{
-		tab->nbr = 1;
-		tab->n_nbr = ft_atoi(format + *i);
+		tab->width = 1;
+		tab->w_nbr = ft_atoi(format + *i);
 		*i = ft_skip_num(format, *i);
 	}
 	return (*i);
