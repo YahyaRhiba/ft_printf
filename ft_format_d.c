@@ -6,13 +6,13 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 03:17:34 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/01 17:02:20 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_format_pluspace(char *nbr, int c)
+char	*ft_format_d_pluspace(char *nbr, int c)
 {
 	char	*rtn;
 	size_t	size;
@@ -31,12 +31,43 @@ char	*ft_format_pluspace(char *nbr, int c)
 	return (rtn[i] = '\0', free(nbr), rtn);
 }
 
+char	*ft_format_d_precision(char *nbr, t_print *tab)
+{
+	char	*rtn;
+	char	*tmp;
+	size_t	numlen;
+	size_t	i;
+	size_t	j;
+
+	numlen = ft_strlen(nbr);
+	if (tab->p_num <= (int)numlen)
+		return (nbr);
+	rtn = (char *)malloc(sizeof(char *) * (tab->p_num + 1));
+	if (!rtn)
+		return (free(nbr), NULL);
+	tmp = rtn;
+	j = 0;
+	if (nbr[j] == '-')
+	{
+		numlen -= 1;
+		*tmp++ = nbr[j++];
+	}
+	i = -1;
+	while (++i < (size_t)(tab->p_num - (int)numlen))
+		*tmp++ = '0';
+	while (nbr[j])
+		*tmp++ = nbr[j++];
+	return (*tmp = '\0', free(nbr), rtn);
+}
+
 char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 {
+	if (tab->point == 1)
+		nbr = ft_format_d_precision(nbr, tab);
 	if (tab->plus == 1)
-		nbr = ft_format_pluspace(nbr, '+');
+		nbr = ft_format_d_pluspace(nbr, '+');
 	else if (tab->space == 1)
-		nbr = ft_format_pluspace(nbr, 32);
+		nbr = ft_format_d_pluspace(nbr, 32);
 	return (nbr);
 }
 
