@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:45:37 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 00:56:34 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 01:43:03 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_init_tab(t_print *tab)
 {
+	tab->error = 0;
 	tab->len = 0;
 	tab->width = 0;
 	tab->mines = 0;
