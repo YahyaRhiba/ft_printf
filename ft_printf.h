@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 16:21:21 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 21:06:44 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define P_NULL "(null)"
+# define PNULL "(null)"
+# define UPHEX "0123456789ABCDEF"
+# define LWHEX "0123456789abcdef"
 
 typedef struct s_print
 {
@@ -44,6 +46,7 @@ char		*ft_strdup(const char *s1);
 char		*ft_strjoin(char const *s1, char const *s2);
 size_t		ft_strlen(const char *s);
 
+char		*ft_converthex(unsigned long n, const char *base);
 int			ft_skip_num(const char *format, int i);
 char		*ft_mins_s(char *s, t_print *tab);
 

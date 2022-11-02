@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:20:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 16:41:36 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 21:04:59 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int	ft_check_format(const char *format, int i, t_print *tab)
 		ft_format_c(tab, '%');
 	else if (format[i] == 'u')
 		ft_format_u(tab);
+	else if (format[i] == 'x')
+		ft_format_lx(tab);
+	else if (format[i] == 'X')
+		ft_format_ux(tab);
 	else
 		ft_format_c(tab, format[i]);
 	return (i);
@@ -32,8 +36,4 @@ int	ft_check_format(const char *format, int i, t_print *tab)
 /*
 	// else if (format[new_i] == 'p')
 	// 	ft_format_p(tab);
-	// else if (format[new_i] == 'x')
-	// 	ft_format_lx(tab);
-	// else if (format[new_i] == 'X')
-	// 	ft_format_ux(tab);
 */

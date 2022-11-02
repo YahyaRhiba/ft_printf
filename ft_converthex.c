@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_s.c                                      :+:      :+:    :+:   */
+/*   ft_converthex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 20:55:32 by yrhiba           ###   ########.fr       */
+/*   Created: 2022/11/02 18:52:35 by yrhiba            #+#    #+#             */
+/*   Updated: 2022/11/02 20:54:58 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_format_s(t_print *tab)
+size_t	ft_hexlen(unsigned long n)
 {
-	char	*s;
-	char	*arg;
+	size_t	i;
 
-	arg = va_arg(tab->args, char *);
-	if (!arg)
-		return (ft_addstr(PNULL, tab));
-	s = ft_strdup((const char *)arg);
-	if (!s)
-		return (tab->error = 1, 0);
-	s = ft_format_s_usingflags(s, tab);
-	if (!s)
-		return (tab->error = 1, 0);
-	ft_addstr((const char *)s, tab);
-	return (free(s), 0);
+	i = 0;
+	while (n)
+	{
+		i++;
+		n /= 16;
+	}
+	return (i);
+}
+
+char	*ft_converthex(unsigned long n, const char *base)
+{
+	char	*rtn;
+	size_t	i;
+
+	i = ft_hexlen(n);
+	rtn = (char *)calloc((i + 1), sizeof(char));
+	if (!rtn)
+		return (NULL);
+	while (n)
+	{
+		rtn[--i] = base[n % 16];
+		n /= 16UL;
+	}
+	return (rtn);
 }

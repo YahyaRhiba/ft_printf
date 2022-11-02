@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_s.c                                      :+:      :+:    :+:   */
+/*   ft_format_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 14:14:56 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 20:55:32 by yrhiba           ###   ########.fr       */
+/*   Created: 2022/11/02 21:00:52 by yrhiba            #+#    #+#             */
+/*   Updated: 2022/11/02 21:10:58 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_format_s(t_print *tab)
+int	ft_format_lx(t_print *tab)
 {
-	char	*s;
-	char	*arg;
+	char	*nbr;
 
-	arg = va_arg(tab->args, char *);
-	if (!arg)
-		return (ft_addstr(PNULL, tab));
-	s = ft_strdup((const char *)arg);
-	if (!s)
-		return (tab->error = 1, 0);
-	s = ft_format_s_usingflags(s, tab);
-	if (!s)
-		return (tab->error = 1, 0);
-	ft_addstr((const char *)s, tab);
-	return (free(s), 0);
+	nbr = ft_converthex(va_arg(tab->args, unsigned int), LWHEX);
+	if (!nbr)
+		return (tab->error = 1, -1);
+	ft_addstr(nbr, tab);
+	return (1);
 }
