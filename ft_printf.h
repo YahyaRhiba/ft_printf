@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 21:06:44 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 21:20:17 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 
 # define PNULL "(null)"
+# define UPPRX "0X"
+# define LWPRX "0x"
 # define UPHEX "0123456789ABCDEF"
 # define LWHEX "0123456789abcdef"
 
@@ -78,5 +80,6 @@ char		*ft_format_s_usingflags(char *s, t_print *tab);
 int			ft_format_d(t_print *tab);
 char		*ft_format_d_usingflags(char *nbr, t_print *tab);
 int			ft_format_u(t_print *tab);
+int			ft_format_x(t_print *tab, const char *base, const char *suff);
 
 #endif
