@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 03:34:49 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 03:42:21 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char		*ft_mins_s(char *s, t_print *tab);
 
 int			ft_printf(const char *format, ...);
 
-int			ft_format(const char *format, int *i, t_print *tab);
+int			ft_format(const char *format, int i, t_print *tab);
 
 void		ft_init_tab(t_print *tab);
 

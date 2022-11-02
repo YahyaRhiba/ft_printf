@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:46:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 03:34:35 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 03:42:28 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_printf(const char *format, ...)
 	while (format[++i])
 	{
 		if (format[i] == '%')
-			ft_format(format, &i, tab);
+			i = ft_format(format, i, tab);
 		else
 			ft_addchar(tab, (char)*(format + i));
 		if (tab->error == 1)

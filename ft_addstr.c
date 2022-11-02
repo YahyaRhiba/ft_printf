@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:14:07 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 03:19:12 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 03:43:43 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ int	ft_addstr(const char *s, t_print *tab)
 		new[i++] = s[j];
 	free(tab->buff);
 	tab->buff = new;
-	tab->len += len;
-	return (tab->buflen = len, len);
+	return (tab->buflen = len);
 }
