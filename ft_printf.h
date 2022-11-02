@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 02:26:03 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 03:12:59 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_print
 	int		plus;
 	int		w_nbr;
 	int		p_num;
+	int		buflen;
 	char	*buff;
 }			t_print;
 
