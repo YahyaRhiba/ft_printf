@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 03:12:59 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 03:34:49 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_print
 {
 	va_list	args;
 	int		error;
-	int		len;
 	int		width;
 	int		mines;
 	int		zero;
