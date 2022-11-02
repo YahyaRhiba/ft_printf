@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:46:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/31 03:06:09 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 01:01:16 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,8 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			ft_init_tab(tab);
-			i = ft_check_format(format, ft_check_flags(format, i + 1, tab),
-					tab);
-			rtn += tab->len;
+			i = ft_format(format, &rtn, i, tab);
+			// check for error and continue
 		}
 		else
 			rtn += write(1, format + i, 1);

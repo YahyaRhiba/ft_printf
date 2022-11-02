@@ -6,13 +6,13 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 01:30:17 by yrhiba            #+#    #+#              #
-#    Updated: 2022/11/01 01:45:38 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/11/02 01:02:14 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-FILES = ft_printf  ft_init_tab \
+FILES = ft_printf  ft_format ft_init_tab \
 		ft_strdup ft_strjoin ft_strlen ft_atoi ft_isnum ft_itoa \
 		ft_check_format ft_check_flags ft_check_flags_utils \
 		ft_format_c ft_format_s ft_format_s_utils \
