@@ -6,9 +6,31 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 01:14:07 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 01:14:16 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 02:34:14 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_addstr(const char *s, t_print *tab)
+{
+	char	*new;
+	size_t	len;
+	int		i;
+	int		j;
+
+	len = ft_strlen(tab->buff) + ft_strlen(s);
+	new = (char *)ft_calloc((len + 1), sizeof(char));
+	if (!new)
+		return (tab->error = 1, -1);
+	i = -1;
+	while ((tab->buff)[++i])
+		new[i] = (tab->buff)[i];
+	j = -1;
+	while (s[++j])
+		new[i++] = s[j];
+	free(tab->buff);
+	tab->buff = new;
+	tab->len += len;
+	return (len);
+}

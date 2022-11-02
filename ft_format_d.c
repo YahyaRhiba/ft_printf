@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 18:44:13 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 02:33:00 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ int	ft_format_d(t_print *tab)
 
 	nbr = ft_itoa(va_arg(tab->args, int));
 	if (!nbr)
-		return (0);
+		return (tab->error = 1, -1);
 	nbr = ft_format_d_usingflags(nbr, tab);
 	if (!nbr)
-		return (0);
-	ft_print_str((const char *)nbr, tab);
+		return (tab->error = 1, -1);
+	ft_addstr((const char *)nbr, tab);
 	return (free(nbr), 0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 01:42:41 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 02:26:03 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,24 @@ typedef struct s_print
 
 void		*ft_calloc(size_t count, size_t size);
 int			ft_atoi(const char *str);
+int			ft_isnum(int c);
 char		*ft_itoa(int nbr);
 char		*ft_strdup(const char *s1);
 char		*ft_strjoin(char const *s1, char const *s2);
 size_t		ft_strlen(const char *s);
-int			ft_isnum(int c);
+
 int			ft_skip_num(const char *format, int i);
 char		*ft_mins_s(char *s, t_print *tab);
 
 int			ft_printf(const char *format, ...);
-void		ft_print_char(char c, int len, t_print *tab);
-int			ft_print_str(const char *str, t_print *tab);
 
 int			ft_format(const char *format, int *i, t_print *tab);
 
 void		ft_init_tab(t_print *tab);
+
+int			ft_addchar(t_print *tab, char c);
+int			ft_addnchar(char c, int len, t_print *tab);
+int			ft_addstr(const char *s, t_print *tab);
 
 int			ft_check_flags(const char *format, int index, t_print *to_print);
 
