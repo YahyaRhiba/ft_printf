@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:46:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 01:01:16 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 01:36:26 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,18 @@ int	ft_printf(const char *format, ...)
 	tab = (t_print *)malloc(sizeof(t_print));
 	if (!tab || !format)
 		return (free(tab), -1);
+	tab->buff = (char *)ft_calloc(1, sizeof(char));
+	if (!tab->buff)
+		return (free(tab), -1);
 	va_start(tab->args, format);
 	rtn = 0;
 	i = -1;
 	while (format[++i])
 	{
 		if (format[i] == '%')
-		{
-			i = ft_format(format, &rtn, i, tab);
-			// check for error and continue
-		}
+			rtn += ft_format(format, &i, tab);
 		else
-			rtn += write(1, format + i, 1);
+			rtn += ft_addchar(tab, format + i);
 	}
-	return (va_end(tab->args), free(tab), rtn);
+	return (va_end(tab->args), free(tab->buff), free(tab), rtn);
 }

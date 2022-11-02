@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 01:01:40 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 01:35:18 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_print
 	char	*buff;
 }			t_print;
 
+void		*ft_calloc(size_t count, size_t size);
 int			ft_atoi(const char *str);
 char		*ft_itoa(int nbr);
 char		*ft_strdup(const char *s1);
@@ -48,7 +49,7 @@ int			ft_printf(const char *format, ...);
 void		ft_print_char(char c, int len, t_print *tab);
 int			ft_print_str(const char *str, t_print *tab);
 
-int			ft_format(const char *format, int *rtn, int i, t_print *tab);
+int			ft_format(const char *format, int *i, t_print *tab);
 
 void		ft_init_tab(t_print *tab);
 
