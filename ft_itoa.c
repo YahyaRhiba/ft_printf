@@ -6,13 +6,13 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:08:14 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/01 01:44:50 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/02 16:11:05 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	ft_nbrlen(long n)
+static size_t	ft_nbrlen(long long n)
 {
 	size_t	nlen;
 
@@ -30,7 +30,7 @@ static size_t	ft_nbrlen(long n)
 	return (nlen);
 }
 
-static char	*ft_crtn(long n, size_t len, char *rtn)
+static char	*ft_crtn(long long n, size_t len, char *rtn)
 {
 	while (n > 0)
 	{
@@ -40,13 +40,11 @@ static char	*ft_crtn(long n, size_t len, char *rtn)
 	return (rtn);
 }
 
-char	*ft_itoa(int nbr)
+char	*ft_itoa(long long n)
 {
 	char	*rtn;
 	size_t	len;
-	long	n;
 
-	n = nbr;
 	if (n == 0)
 		return (ft_strdup("0"));
 	len = ft_nbrlen(n);
