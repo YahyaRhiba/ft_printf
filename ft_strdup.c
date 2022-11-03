@@ -6,13 +6,13 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 13:27:20 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/10/30 16:15:58 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:40:48 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	size_t	ft_lcpystr(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	lens;
 	size_t	i;
@@ -43,6 +43,6 @@ char	*ft_strdup(const char *s1)
 	rtn = (char *)malloc(sizeof(char) * size);
 	if (!rtn)
 		return (NULL);
-	ft_lcpystr(rtn, s1, size);
+	ft_strlcpy(rtn, s1, size);
 	return (rtn);
 }

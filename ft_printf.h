@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 15:30:33 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 17:36:48 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char		*ft_itoa(long long n);
 char		*ft_strdup(const char *s1);
 char		*ft_strjoin(char const *s1, char const *s2);
 size_t		ft_strlen(const char *s);
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 char		*ft_converthex(unsigned long n, const char *base);
 int			ft_skip_num(const char *format, int i);
@@ -84,5 +85,7 @@ int			ft_format_d(t_print *tab);
 char		*ft_format_d_usingflags(char *nbr, t_print *tab);
 int			ft_format_u(t_print *tab);
 int			ft_format_x(t_print *tab, const char *base, const char *suff);
+char		*ft_format_x_usingflags(char *nbr, t_print *tab,
+				const char *prefix);
 
 #endif

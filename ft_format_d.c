@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 16:00:51 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 17:34:18 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_format_d_precision(char *nbr, size_t numlen, int len, int c)
 
 char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 {
-	if (tab->point )
+	if (tab->point)
 		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->p_num, '0');
 	if (nbr && tab->plus)
 		nbr = ft_format_d_pluspace(nbr, '+');
