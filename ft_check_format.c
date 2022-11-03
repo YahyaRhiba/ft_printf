@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:20:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 21:26:26 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 18:51:31 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	ft_check_format(const char *format, int i, t_print *tab)
 		ft_format_x(tab, LWHEX, LWPRX);
 	else if (format[i] == 'X')
 		ft_format_x(tab, UPHEX, UPPRX);
+	else if (format[i] == 'p')
+		ft_format_p(tab);
 	else
 		ft_format_c(tab, format[i]);
 	return (i);
 }
 
 /*
-	// else if (format[new_i] == 'p')
-	// 	ft_format_p(tab);
 */

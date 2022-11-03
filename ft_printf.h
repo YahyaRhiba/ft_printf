@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 17:36:48 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 22:57:17 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ char		*ft_format_d_usingflags(char *nbr, t_print *tab);
 int			ft_format_u(t_print *tab);
 int			ft_format_x(t_print *tab, const char *base, const char *suff);
 char		*ft_format_x_usingflags(char *nbr, t_print *tab,
-				const char *prefix);
+				const char *prefix, int f);
+int			ft_format_p(t_print *tab);
 
 #endif

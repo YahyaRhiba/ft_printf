@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 01:30:17 by yrhiba            #+#    #+#              #
-#    Updated: 2022/11/03 17:35:02 by yrhiba           ###   ########.fr        #
+#    Updated: 2022/11/03 18:50:17 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ FILES = ft_printf ft_format ft_init_tab \
 		ft_check_format ft_check_flags ft_check_flags_utils \
 		ft_format_c ft_format_s ft_format_s_utils \
 		ft_format_d ft_format_u ft_format_x ft_format_x_utils \
+		ft_format_p \
 
 OBJS_DIR = objs/
 INC = ft_printf.h

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 17:34:18 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 23:44:08 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,15 @@ char	*ft_format_d_pluspace(char *nbr, int c)
 	return (rtn[i] = '\0', free(nbr), rtn);
 }
 
-char	*ft_format_d_precision(char *nbr, size_t numlen, int len, int c)
+char	*ft_format_d_precision(char *nbr, int len, int c, int f)
 {
 	char	*rtn;
 	char	*tmp;
 	size_t	i;
 	size_t	j;
+	size_t	numlen;
 
+	numlen = ft_strlen(nbr);
 	if (len < (int)numlen)
 		return (nbr);
 	rtn = (char *)malloc(sizeof(char *) * (len + 1));
@@ -47,7 +49,7 @@ char	*ft_format_d_precision(char *nbr, size_t numlen, int len, int c)
 	j = 0;
 	if ((nbr[j] == '-' || nbr[j] == '+') && c == '0')
 	{
-		if (nbr[j] == '-')
+		if (nbr[j] == '-' && f)
 			numlen -= 1;
 		*tmp++ = nbr[j++];
 	}
@@ -62,7 +64,7 @@ char	*ft_format_d_precision(char *nbr, size_t numlen, int len, int c)
 char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 {
 	if (tab->point)
-		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->p_num, '0');
+		nbr = ft_format_d_precision(nbr, tab->p_num, '0', 1);
 	if (nbr && tab->plus)
 		nbr = ft_format_d_pluspace(nbr, '+');
 	else if (nbr && tab->space)
@@ -70,17 +72,19 @@ char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 	if (nbr && tab->mines)
 		nbr = ft_mins_s(nbr, tab);
 	else if (nbr && tab->zero && !tab->point)
-		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->w_nbr, '0');
+		nbr = ft_format_d_precision(nbr, tab->w_nbr, '0', 0);
 	else if (nbr && tab->width)
-		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->w_nbr, 32);
+		nbr = ft_format_d_precision(nbr, tab->w_nbr, 32, 0);
 	return (nbr);
 }
 
 int	ft_format_d(t_print *tab)
 {
 	char	*nbr;
+	int		n;
 
-	nbr = ft_itoa(va_arg(tab->args, int));
+	n = va_arg(tab->args, int);
+	nbr = ft_itoa(n);
 	if (!nbr)
 		return (tab->error = 1, -1);
 	nbr = ft_format_d_usingflags(nbr, tab);
