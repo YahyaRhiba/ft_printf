@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:54:06 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 17:36:19 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 17:47:28 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ char	*ft_format_x_usingflags(char *nbr, t_print *tab, const char *prefix)
 {
 	nbr = ft_xcheck_hash(nbr, tab, prefix);
 	nbr = ft_xcheck_point(nbr, tab, prefix);
-	return (NULL);
+	return (nbr);
 }

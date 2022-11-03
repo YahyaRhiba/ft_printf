@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:52:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 15:06:13 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 18:09:52 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static size_t	ft_hexlen(unsigned long n)
 	size_t	i;
 
 	i = 0;
+	if (!n)
+		return (1);
 	while (n)
 	{
 		i++;
@@ -39,5 +41,7 @@ char	*ft_converthex(unsigned long n, const char *base)
 		rtn[--i] = base[n % 16];
 		n /= 16UL;
 	}
+	if (!*rtn)
+		*rtn = '0';
 	return (rtn);
 }
