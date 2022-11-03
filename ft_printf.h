@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 01:27:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 21:20:17 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:30:33 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ size_t		ft_strlen(const char *s);
 
 char		*ft_converthex(unsigned long n, const char *base);
 int			ft_skip_num(const char *format, int i);
+
 char		*ft_mins_s(char *s, t_print *tab);
+char		*ft_precision_s(char *s, t_print *tab);
+char		*ft_zerospaces_s(char *s, int c, int t_len);
 
 int			ft_printf(const char *format, ...);
 

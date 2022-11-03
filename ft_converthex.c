@@ -6,13 +6,13 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:52:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 20:54:58 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:06:13 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_hexlen(unsigned long n)
+static size_t	ft_hexlen(unsigned long n)
 {
 	size_t	i;
 

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/02 02:33:00 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:00:51 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,17 @@ char	*ft_format_d_precision(char *nbr, size_t numlen, int len, int c)
 
 char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 {
-	if (tab->point == 1)
+	if (tab->point )
 		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->p_num, '0');
-	if (nbr && tab->plus == 1)
+	if (nbr && tab->plus)
 		nbr = ft_format_d_pluspace(nbr, '+');
-	else if (nbr && tab->space == 1)
+	else if (nbr && tab->space)
 		nbr = ft_format_d_pluspace(nbr, 32);
-	if (nbr && tab->mines == 1)
+	if (nbr && tab->mines)
 		nbr = ft_mins_s(nbr, tab);
-	else if (nbr && tab->zero == 1 && tab->point == 0)
+	else if (nbr && tab->zero && !tab->point)
 		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->w_nbr, '0');
-	else if (nbr && tab->width == 1)
+	else if (nbr && tab->width)
 		nbr = ft_format_d_precision(nbr, ft_strlen(nbr), tab->w_nbr, 32);
 	return (nbr);
 }
