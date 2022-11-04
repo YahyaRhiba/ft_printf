@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 23:44:08 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/04 02:50:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,33 @@ char	*ft_format_d_pluspace(char *nbr, int c)
 	return (rtn[i] = '\0', free(nbr), rtn);
 }
 
+
+// i[0] =>  i	| i[1] => j | i[2] => numlen
 char	*ft_format_d_precision(char *nbr, int len, int c, int f)
 {
 	char	*rtn;
 	char	*tmp;
-	size_t	i;
-	size_t	j;
-	size_t	numlen;
+	size_t	i[3];
 
-	numlen = ft_strlen(nbr);
-	if (len < (int)numlen)
+	i[2] = ft_strlen(nbr);
+	if (len < (int)i[2])
 		return (nbr);
 	rtn = (char *)malloc(sizeof(char *) * (len + 1));
 	if (!rtn)
 		return (free(nbr), NULL);
 	tmp = rtn;
-	j = 0;
-	if ((nbr[j] == '-' || nbr[j] == '+') && c == '0')
+	i[1] = 0;
+	if ((nbr[i[1]] == '-' || nbr[i[1]] == '+') && c == '0')
 	{
-		if (nbr[j] == '-' && f)
-			numlen -= 1;
-		*tmp++ = nbr[j++];
+		if (nbr[i[1]] == '-' && f)
+			i[2] -= 1;
+		*tmp++ = nbr[i[1]++];
 	}
-	i = -1;
-	while (++i < (size_t)(len - (int)numlen))
+	i[0] = -1;
+	while (++i[0] < (size_t)(len - (int)i[2]))
 		*tmp++ = c;
-	while (nbr[j])
-		*tmp++ = nbr[j++];
+	while (nbr[i[1]])
+		*tmp++ = nbr[i[1]++];
 	return (*tmp = '\0', free(nbr), rtn);
 }
 
@@ -93,15 +93,3 @@ int	ft_format_d(t_print *tab)
 	ft_addstr((const char *)nbr, tab);
 	return (free(nbr), 0);
 }
-
-/*
-
-	HASH	: NO
-	SPACE 	: YES IGNORED IF + EXIST
-	PLUS	: YES
-	MINS	: YES
-	WIDTH	: YES
-	ZEROS	: YES IGNORED IF PRES OR MINS EXIST
-	PRECS	: YES
-
-*/
