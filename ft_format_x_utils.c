@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:54:06 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/04 06:28:13 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/04 06:45:50 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_xcheck_hash(char *nbr, t_print *tab, const char *prefix, int f)
 
 	if (!tab->hash)
 		return (nbr);
-	if (*nbr == '0' && ft_strlen(nbr) == 1 && f)
+	if (nbr && *nbr == '0' && ft_strlen(nbr) == 1 && f)
 		return (nbr);
 	rtn = ft_strjoin(prefix, nbr);
 	return (free(nbr), rtn);
