@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:20:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 18:51:31 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/04 02:39:31 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,3 @@ int	ft_check_format(const char *format, int i, t_print *tab)
 		ft_format_c(tab, format[i]);
 	return (i);
 }
-
-/*
-*/
