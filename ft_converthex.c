@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:52:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 18:40:53 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/04 05:42:42 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_converthex(unsigned long n, const char *base)
 	size_t	i;
 
 	i = ft_hexlen(n);
-	rtn = (char *)calloc((i + 1), sizeof(char));
+	rtn = (char *)ft_calloc((i + 1), sizeof(char));
 	if (!rtn)
 		return (NULL);
 	while (n)

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 03:10:22 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/03 16:01:13 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/04 06:28:38 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ char	*ft_zerospaces_s(char *s, int c, int t_len)
 	len = (int)ft_strlen((const char *)s);
 	if (t_len < len)
 		return (s);
-	rtn = (char *)malloc(sizeof(char) * (t_len + 1));
+	rtn = (char *)malloc(sizeof(char) * (t_len + 2));
 	if (!rtn)
 		return (free(s), NULL);
 	i = 0;
 	while (i < (t_len - len))
 		rtn[i++] = c;
 	j = 0;
-	while (j < len)
+	while (s[j])
 		rtn[i++] = s[j++];
 	rtn[i] = '\0';
 	return (free(s), rtn);

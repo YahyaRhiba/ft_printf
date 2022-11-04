@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:38:18 by yrhiba            #+#    #+#             */
-/*   Updated: 2022/11/04 02:50:11 by yrhiba           ###   ########.fr       */
+/*   Updated: 2022/11/04 05:00:16 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	*ft_format_d_pluspace(char *nbr, int c)
 	return (rtn[i] = '\0', free(nbr), rtn);
 }
 
-
 // i[0] =>  i	| i[1] => j | i[2] => numlen
 char	*ft_format_d_precision(char *nbr, int len, int c, int f)
 {
@@ -47,7 +46,7 @@ char	*ft_format_d_precision(char *nbr, int len, int c, int f)
 		return (free(nbr), NULL);
 	tmp = rtn;
 	i[1] = 0;
-	if ((nbr[i[1]] == '-' || nbr[i[1]] == '+') && c == '0')
+	if ((nbr[i[1]] == '-' || nbr[i[1]] == '+' || nbr[i[1]] == 32) && c == '0')
 	{
 		if (nbr[i[1]] == '-' && f)
 			i[2] -= 1;
@@ -64,7 +63,15 @@ char	*ft_format_d_precision(char *nbr, int len, int c, int f)
 char	*ft_format_d_usingflags(char *nbr, t_print *tab)
 {
 	if (tab->point)
-		nbr = ft_format_d_precision(nbr, tab->p_num, '0', 1);
+	{
+		if (*nbr == '0' && ft_strlen(nbr) == 1)
+		{
+			free(nbr);
+			nbr = ft_strdup("");
+		}
+		if (nbr)
+			nbr = ft_format_d_precision(nbr, tab->p_num, '0', 1);
+	}
 	if (nbr && tab->plus)
 		nbr = ft_format_d_pluspace(nbr, '+');
 	else if (nbr && tab->space)
