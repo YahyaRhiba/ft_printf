@@ -45,15 +45,6 @@ fclean : clean
 
 re : fclean all
 
-t : all
-	cc main.c -L . -l ftprintf
-
-tclean : fclean
-	rm -rf a.out
-
-tfclean : tclean
-	rm -rf main.c
-
 bonus : all
 
 .PHONEY : all clean fclean re bonus
