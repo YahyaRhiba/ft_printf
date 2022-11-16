@@ -7,7 +7,9 @@ Program name : libftprintf.a
 External functs : malloc, free, write,
                   va_start, va_arg, va_copy, va_end.
                 
-The prototype of ft_printf() is:  int ft_printf(const char *, ...);
+The prototype of ft_printf() is:  
+                             
+                   int ft_printf(const char *, ...);
 
 THe function handle the following conversions: cspdiuxX%
 
